@@ -2,4 +2,8 @@
 
 # Generate private key example
 
-Run command: `ts-node solana-tools/src/privateKey/generate.ts`
+Command: `ts-node solana-tools/src/privateKey/generate.ts`
+
+# Run pumpfun new launches scanner
+
+Command: `ts-node src/newPumpfunLaunchesScanner/scanner.ts`
