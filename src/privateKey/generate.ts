@@ -1,13 +1,16 @@
 import { Keypair } from "@solana/web3.js";
+import bs58 from "bs58";
 
-function generateSolanaPrivateKey(): string {
+export function generateSolanaKeypair() {
     const keypair = Keypair.generate();
-    const privateKey = keypair.secretKey;
-    return Buffer.from(privateKey).toString("hex");
+    return {
+        privateKey: bs58.encode(keypair.secretKey),
+        address: keypair.publicKey.toBase58(),
+    };
 }
 
 if (require.main === module) {
-    console.log(generateSolanaPrivateKey());
+    const { privateKey, address } = generateSolanaKeypair();
+    console.log("Public Key:", address);
+    console.log("Private Key:", privateKey);
 }
-
-export { generateSolanaPrivateKey };
