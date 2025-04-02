@@ -17,7 +17,7 @@ if (require.main === module) {
 }
 
 
-export const convertPrivateKey = (filePathToByteArray: string) => {
+export const convertPrivateKeyFromByteArray = (filePathToByteArray: string) => {
     fs.readFile(filePathToByteArray, 'utf8', (err, data) => {
         if (err) {
             console.error('Error reading file:', err);
